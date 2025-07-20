@@ -1473,11 +1473,11 @@ namespace Microsoft.PowerPlatform.Dataverse.Client
             Uri OrgWorkingURI = null;
             if (!IsOnPrem)
             {
-                OrgWorkingURI = new Uri(string.Format(SoapOrgUriFormat, _targetInstanceUriToConnectTo.Scheme, _targetInstanceUriToConnectTo.DnsSafeHost));
+                OrgWorkingURI = new Uri(string.Format(SoapOrgUriFormat, _targetInstanceUriToConnectTo.Scheme, _targetInstanceUriToConnectTo.Authority));
             }
             else
             {
-                OrgWorkingURI = new Uri(string.Format(SoapOrgUriFormat, _targetInstanceUriToConnectTo.Scheme, $"{_targetInstanceUriToConnectTo.DnsSafeHost}/{_organization}"));
+                OrgWorkingURI = new Uri(string.Format(SoapOrgUriFormat, _targetInstanceUriToConnectTo.Scheme, $"{_targetInstanceUriToConnectTo.Authority}/{_organization}"));
             }
             _targetInstanceUriToConnectTo = OrgWorkingURI;
 
